@@ -6,6 +6,10 @@ It gets posts with less than 24 hours, configurable in [fetch.sh](./fetch.sh)
 
 The list of relays is configurable in [publish.sh](./publish.sh)
 
+## Requirements
+
+- [nak](https://github.com/fiatjaf/nak), the nostr army knife
+
 ## How to use it
 
 Clone this repo:
