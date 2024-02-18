@@ -9,6 +9,7 @@ The list of relays is configurable in [publish.sh](./publish.sh)
 ## Requirements
 
 - [nak](https://github.com/fiatjaf/nak), the nostr army knife
+- [jq](https://jqlang.github.io/jq/), a command-line JSON processor
 
 ## How to use it
 
