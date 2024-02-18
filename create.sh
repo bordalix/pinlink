@@ -1,4 +1,9 @@
-#!/bin/sh
+#!/bin/bash
+
+writeToFile () {
+  echo $1 >> event.txt
+  echo "" >> event.txt
+}
 
 # create file with event text
 cat intro.txt > event.txt
@@ -12,20 +17,20 @@ while read -r h; read -r d; read -r e; read -r t; do
   link=$(echo $h | tr -d \")
   tags=$(echo $t | tr -d \")
   # add post description
-  full="$desc\n\n"
+  writeToFile "$desc"
   # add extended info if present
   if [ -n "$info" ]; then
-    full+="$info\n\n"
+    writeToFile "$info"
   fi
   # add tags if present (ex: #bitcoin #nostr)
+  # tagline=""
   # if [ -n "$tags" ]; then
-  #   for tag in $tags; do full+="#$tag "; done
-  #   full+="\n\n"
+  #   for tag in $tags; do tagline+="#$tag "; done
+  #   writeToFile "$tagline"
   # fi
   # add link
-  full+="$link\n\n\n"
-  # write to file
-  echo $full >> event.txt
+  writeToFile "$link"
+  echo "" >> event.txt
 done
 
 cat event.txt
