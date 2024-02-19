@@ -30,7 +30,7 @@ while read -r h; read -r d; read -r e; read -r t; do
   # fi
   # add link
   writeToFile "$link"
-  echo "" >> event.txt
+  writeToFile "---"
 done
 
 cat event.txt
