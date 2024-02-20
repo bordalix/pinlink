@@ -6,7 +6,8 @@ writeToFile () {
 }
 
 # create file with event text
-cat intro.txt > event.txt
+writeToFile "$(date +%F)" > event.txt
+cat intro.txt >> event.txt
 
 # add posts
 cat posts.json | jq '.[] | select(.shared=="yes") | .href, .description, .extended, .tags' | \
