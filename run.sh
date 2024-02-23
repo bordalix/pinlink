@@ -1,10 +1,10 @@
 #!/bin/sh
 
-# fetch from pinboard
+echo fetching from pinboard
 ./fetch.sh
 
-# create event text
+echo creating event text
 ./create.sh
 
-# publish to relays
+echo publishing event to relays
 ./publish.sh
