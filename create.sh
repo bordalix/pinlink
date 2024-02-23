@@ -18,10 +18,10 @@ while read -r h; read -r d; read -r e; read -r t; do
   link=$(echo $h | tr -d \")
   tags=$(echo $t | tr -d \")
   # add post description
-  writeToFile "💡 $desc"
+  writeToFile "$desc"
   # add extended info if present
   if [ -n "$info" ]; then
-    writeToFile "🔍 $info"
+    writeToFile "$info"
   fi
   # add tags if present (ex: #bitcoin #nostr)
   # tagline=""
@@ -30,7 +30,7 @@ while read -r h; read -r d; read -r e; read -r t; do
   #   writeToFile "$tagline"
   # fi
   # add link
-  writeToFile "🔗 $link"
+  writeToFile "$link"
   writeToFile "---"
 done
 
