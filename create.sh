@@ -5,9 +5,10 @@ writeToFile () {
   echo "" >> event.txt
 }
 
-# create file with event text
+first_post=true
+
+# create file with event date as first line of text
 writeToFile "$(date +%A) assorted links:" > event.txt
-# cat intro.txt >> event.txt
 
 # add posts
 cat posts.json | jq '.[] | select(.shared=="yes") | .href, .description, .extended, .tags' | \
@@ -17,6 +18,12 @@ while read -r h; read -r d; read -r e; read -r t; do
   info=$(echo $e | tr -d \")
   link=$(echo $h | tr -d \")
   tags=$(echo $t | tr -d \")
+  # add post separator unless is first post
+  if [ "$first_post" = true ]; then
+    first_post=false
+  else
+    writeToFile "---"
+  fi
   # add post description
   writeToFile "$desc"
   # add extended info if present
@@ -30,8 +37,7 @@ while read -r h; read -r d; read -r e; read -r t; do
   #   writeToFile "$tagline"
   # fi
   # add link
-  writeToFile "$link"
-  writeToFile "---"
+  writeToFile "🔗 $link"
 done
 
 cat event.txt
