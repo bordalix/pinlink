@@ -1,5 +1,11 @@
 #!/bin/bash
 
+filesize=$(wc -c < event.txt)
+
+if [ $filesize -le 100 ]; then
+  exit "file too small"
+fi
+
 source ./.env.local # for seckey
 
 relays="wss://nos.lol wss://relay.primal.net wss://relay.damus.io wss://relay.nostr.band wss://nostr.bitcoiner.social"
