@@ -13,9 +13,9 @@ writeToFile "$(date +%A) assorted links:" > event.txt
 # add posts
 cat posts.json | jq '.[] | select(.shared=="yes") | .href, .description, .extended, .tags' | \
 while read -r h; read -r d; read -r e; read -r t; do
-  # remove quotes from strings
-  desc=$(echo $d | tr -d \")
-  info=$(echo $e | tr -d \")
+  # remove quotes from strings and substitute '\n' with newlines
+  desc=$(echo $d | tr -d \" | sed 's/\\n/\n/g')
+  info=$(echo $e | tr -d \" | sed 's/\\n/\n/g')
   link=$(echo $h | tr -d \")
   tags=$(echo $t | tr -d \")
   # add post separator unless is first post
