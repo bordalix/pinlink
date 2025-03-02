@@ -8,7 +8,7 @@ writeToFile () {
 first_post=true
 
 # create file with event date as first line of text
-writeToFile "$(date +%A) assorted links:" > event.txt
+writeToFile "GM! $(date +%A) assorted links:" > event.txt
 
 # add posts
 cat posts.json | jq '.[] | select(.shared=="yes") | .href, .description, .extended, .tags' | \
