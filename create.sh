@@ -1,5 +1,25 @@
 #!/bin/bash
 
+declare -a greetings=(
+  "Bom dia"
+  "Good Morning"
+  "Buenos días"
+  "Bonjour"
+  "Guten Morgen"
+  "Ohayō gozaimasu"
+  "Nǐ hǎo"
+  "Namaste"
+  "Добрае раніца"
+  "Bună dimineața"
+  "Dobrý ráno"
+)
+
+function get_random_good_morning() {
+  local random_index=$((RANDOM % ${#greetings[@]}))
+  echo "${greetings[$random_index]}"
+}
+
+
 writeToFile () {
   echo $1 >> event.txt
   echo "" >> event.txt
@@ -8,7 +28,9 @@ writeToFile () {
 first_post=true
 
 # create file with event date as first line of text
-writeToFile "GM! $(date +%A) assorted links:" > event.txt
+echo > event.txt
+writeToFile "$(get_random_good_morning)!"
+writeToFile "$(date +%A) assorted links:"
 
 # add posts
 cat posts.json | jq '.[] | select(.shared=="yes") | .href, .description, .extended, .tags' | \
