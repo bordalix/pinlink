@@ -10,4 +10,5 @@ else
 fi
 
 # fetch latest posts from pinboard
-curl -s $url | jq . > posts.json
+url="https://api.pinboard.in/v1/posts/all?fromdt=${yesterday}&format=json&auth_token=$authtoken"
+curl -s "$url" | jq . > posts.json
