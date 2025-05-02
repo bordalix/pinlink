@@ -28,7 +28,7 @@ writeToFile () {
 first_post=true
 
 # create file with event date as first line of text
-echo > event.txt
+echo -n > event.txt
 writeToFile "$(get_random_good_morning)!"
 writeToFile "$(date +%A) assorted links:"
 
