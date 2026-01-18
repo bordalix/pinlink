@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ./vars.sh
+
 declare -a greetings=(
   "Bom dia"
   "Good Morning"
@@ -19,21 +21,20 @@ function get_random_good_morning() {
   echo "${greetings[$random_index]}"
 }
 
-
 writeToFile () {
-  echo $1 >> event.txt
-  echo "" >> event.txt
+  echo $1 >> $content_file
+  echo "" >> $content_file
 }
 
 first_post=true
 
 # create file with event date as first line of text
-echo -n > event.txt
+echo -n > $content_file
 writeToFile "$(get_random_good_morning)!"
 writeToFile "$(date +%A) assorted links:"
 
 # add posts
-cat posts.json | jq '.[] | select(.shared=="yes") | .href, .description, .extended, .tags' | \
+cat $pinboard_posts | jq '.[] | select(.shared=="yes") | .href, .description, .extended, .tags' | \
 while read -r h; read -r d; read -r e; read -r t; do
   # remove quotes from strings and substitute '\n' with newlines
   desc=$(echo $d | tr -d \" | sed 's/\\n/\n/g')
@@ -62,4 +63,4 @@ while read -r h; read -r d; read -r e; read -r t; do
   writeToFile "🔗 $link"
 done
 
-cat event.txt
+cat $content_file

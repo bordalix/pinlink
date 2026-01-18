@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source ./vars.sh
 source ./.env.local # for authtoken
 
 os=$(uname)
@@ -11,4 +12,6 @@ fi
 
 # fetch latest posts from pinboard
 url="https://api.pinboard.in/v1/posts/all?fromdt=${yesterday}&format=json&auth_token=$authtoken"
-curl -s "$url" | jq . > posts.json
+curl -s "$url" | jq . > $pinboard_posts
+
+cat $pinboard_posts

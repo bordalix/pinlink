@@ -1,3 +1,4 @@
 .env.local
-event.txt
+content.txt
+event.json
 posts.json
