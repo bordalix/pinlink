@@ -35,3 +35,7 @@ There are 4 executable scripts:
 - [create.sh](./create.sh) from `posts.json` creates `content.txt` with full text for the event to be published
 - [publish.sh](./publish.sh) gets event content from `content.txt`, signs and publishes it to list of relays, and creates `event.json` with published event
 - [run.sh](./run.sh) run all 3 previous scripts in sequence
+
+Retweet
+
+- [retweet](./retweet.sh) republishes the event found in `event.json`
