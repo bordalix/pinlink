@@ -38,4 +38,4 @@ There are 4 executable scripts:
 
 Retweet
 
-- [retweet](./retweet.sh) republishes the event found in `event.json`
+- [repost](./repost.sh) republishes the event found in `event.json`
