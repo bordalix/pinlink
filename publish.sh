@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source ./vars.sh
 source ./.env.local # for seckey
+source ./vars.sh # for content_file, last_event, relays
 
 filesize=$(wc -c < $content_file)
 

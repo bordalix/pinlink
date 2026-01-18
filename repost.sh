@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source ./vars.sh
-source ./.env.local # for seckey
+source ./.env.local # for seckey, pubkey
+source ./vars.sh # for last_event, relays
 
 p_tag="[\"p\", \"$pubkey\"]"
 id=$(cat $last_event | jq -r .id)

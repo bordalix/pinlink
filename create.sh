@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./vars.sh
+source ./vars.sh # for pinboard_posts, content_file
 
 declare -a greetings=(
   "Bom dia"

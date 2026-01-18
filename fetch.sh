@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source ./vars.sh
 source ./.env.local # for authtoken
+source ./vars.sh # for pinboard_posts
 
 os=$(uname)
 if [ $os == 'Darwin' ]; then
