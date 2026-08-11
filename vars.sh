@@ -12,4 +12,4 @@ content_file="content.txt"
 last_event="event.json"
 
 # Nostr relays to use
-relays="wss://nos.lol wss://relay.primal.net wss://relay.damus.io wss://relay.nostr.band wss://nostr.bitcoiner.social"
+relays="wss://nos.lol wss://relay.primal.net wss://relay.damus.io wss://relay.nostr.band wss://nostr.bitcoiner.social wss://eden.nostr.land wss://nostr.wine wss://relay.mostr.pub wss://relay.snort.social"
